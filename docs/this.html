@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>$this-&gt;validate()の$thisとは？</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/memo/assets/css/0.styles.5cbcb395.css" as="style"><link rel="preload" href="/memo/assets/js/app.43799d8e.js" as="script"><link rel="preload" href="/memo/assets/js/2.948f2844.js" as="script"><link rel="preload" href="/memo/assets/js/8.a6050301.js" as="script"><link rel="prefetch" href="/memo/assets/js/3.8070d5a8.js"><link rel="prefetch" href="/memo/assets/js/4.f22d64cd.js"><link rel="prefetch" href="/memo/assets/js/5.4386aaa0.js"><link rel="prefetch" href="/memo/assets/js/6.b7e208da.js"><link rel="prefetch" href="/memo/assets/js/7.dd65bc10.js"><link rel="prefetch" href="/memo/assets/js/9.fb75b7ca.js">
+    <link rel="stylesheet" href="/memo/assets/css/0.styles.5cbcb395.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/memo/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="this-validate-の-thisとは？"><a href="#this-validate-の-thisとは？" aria-hidden="true" class="header-anchor">#</a> $this-&gt;validate()の$thisとは？</h1> <h2 id="はじめに"><a href="#はじめに" aria-hidden="true" class="header-anchor">#</a> はじめに</h2> <p>以下のようなサンプルコードがある。</p> <div class="language-php:app/Http/Controllers/Admin/NewsController.php extra-class"><pre class="language-text"><code>
+&lt;?php
+namespace App\Http\Controllers\Admin;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\News;
+
+class NewsController extends Controller
+{
+  // 入力された値をもとにデータベースへ保存する
+  public function create(Request $request)
+  {
+      // バリデーションを行う
+      $this-&gt;validate($request, News::$rules);
+
+      $news = new News;
+      $form = $request-&gt;all();
+
+      $news-&gt;fill($form);
+      $news-&gt;save();
+
+      return redirect('admin/news/create');
+  }
+}
+
+</code></pre></div><p><code>$this-&gt;validate()</code> とは、バリデーションを行う。
+データを保存する前に、データを送信されてきた値が正しいかどうか確認が必要な場合がある。
+例えば、ニュース投稿でタイトルが入力されていなかったときに、何も検証しないままでは不完全なデータを登録してしまう。
+このようなデータの不備を、あらかじめ防ぐために検証する仕組みがバリデーションである。</p> <p>しかし、突然 <code>$this</code> が現れている。今回はこれについて説明する。</p> <h2 id="thisを見てみよう"><a href="#thisを見てみよう" aria-hidden="true" class="header-anchor">#</a> $thisを見てみよう</h2> <p>変数の中身を確認できる関数 <code>var_dump()</code> を利用する。</p> <div class="language-php:app/Http/Controllers/Admin/NewsController.php extra-class"><pre class="language-text"><code>class NewsController extends Controller
+{
+  // ニュース投稿画面を開く
+  public function add()
+  {
+      var_dump($this);
+  }
+}
+</code></pre></div><p>実行結果は以下の通りである。</p> <img width="700" alt="全画面_2019_09_24_9_24.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/227802/33cfa887-dbdd-281c-50a1-7c2f9d6aba13.png"> <p><code>$this</code> にはNewsControllerのObjectが入っているようだ。
+つまり、NewsController自体を指しているという意味である。</p> <h2 id="もう少し深掘りする"><a href="#もう少し深掘りする" aria-hidden="true" class="header-anchor">#</a> もう少し深掘りする</h2> <p>NewsController自体を指すとは、どういう意味か？
+プログラムで <code>class NewsController extends Controller</code> と宣言しているがこれが鍵となっている。
+NewsControllerという名前でクラス定義している。</p> <p>classを直訳すると、共通の性質を有している部類、種類という意味である。
+これでは分かりづらいので、学校のクラスを想像してほしい。
+学校のクラスには様々な生徒がいる。国語が得意な子、音楽が得意な子など、生徒それぞれには特徴がある。
+また、担任の先生も存在する。
+さらに教室の中には、黒板や机、椅子もある。
+そのように一つのクラスには様々な人やものが所属していると考えるが、これと同様と思って良い。
+ちなみに生徒や先生、黒板などをメンバーという。</p> <img width="1113" alt="6067dfb43921b34d9f6c53d59946a599.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/227802/581fb475-b794-11bc-0ae3-4a3c9078e1f1.png"> <p>上の図のように、NewsControllerにはindex()やadd()などのメソッドが含まれており、これらはNewsControllerのメンバーといえる。</p> <h2 id="newscontrollerにはvalidate-がない？"><a href="#newscontrollerにはvalidate-がない？" aria-hidden="true" class="header-anchor">#</a> NewsControllerにはvalidate()がない？</h2> <p>一つのクラスには様々な人やものが所属していると考えれば良い、と出たがNewsControllerにはvalidate()なんて存在しない。
+それではどこにあるのか？</p> <p>プログラムで <code>class NewsController extends Controller</code> と宣言しているが、またこれが重要なポイントである。
+これはControllerを継承してNewsControllerを宣言しており、Controllerのメンバーを利用して良いという意味である。</p> <div class="language-php:app/Http/Controllers/Controller.php extra-class"><pre class="language-text"><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+}
+</code></pre></div><p>Controllerにもvalidate()がない。</p> <p>答えを先に言うと、
+<code>vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php</code> にvalidate()がある。</p> <p>今回は <code>use AuthorizesRequests, DispatchesJobs, ValidatesRequests;</code> がポイントで、これで他のプログラムを呼び出している。
+ValidatesRequests.phpに存在するメソッドなどを利用できる。
+つまり、バリデーションはLaravelで用意されている機能である。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/memo/assets/js/app.43799d8e.js" defer></script><script src="/memo/assets/js/2.948f2844.js" defer></script><script src="/memo/assets/js/8.a6050301.js" defer></script>
+  </body>
+</html>
