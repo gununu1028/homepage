@@ -1,0 +1,15 @@
+{
+  "name": "memo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MaAtsushi/memo.git",
+  "author": "Matsuda Atsushi",
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "^1.1.0"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  }
+}
