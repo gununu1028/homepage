@@ -1,5 +1,5 @@
 
 module.exports = {
-  base: '/memo/',
+  base: '/official-blog/',
   dest: process.cwd() + '/docs/'
 }
