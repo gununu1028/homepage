@@ -11,5 +11,8 @@
   "scripts": {
     "dev": "vuepress dev md",
     "build": "vuepress build md"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-blog": "^1.5.2"
   }
 }
