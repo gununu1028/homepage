@@ -3,6 +3,7 @@
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
+      v-if="!$page.frontmatter.home"
       :to="$localePath"
       class="home-link"
     >
@@ -92,6 +93,8 @@ $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
+  h1
+    line-height unset
   a, span, img
     display inline-block
   .logo

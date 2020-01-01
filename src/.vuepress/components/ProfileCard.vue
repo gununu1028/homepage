@@ -21,9 +21,9 @@
   </div>
 </template>
 
-<style>
-.box {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
+<style lang="stylus">
+.box
+  color black
+  margin-top 4rem
+  margin-bottom 4rem
 </style>

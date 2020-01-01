@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul v-for="post in posts">
-      <li>
+    <ul>
+      <li v-for="post in posts">
         <a v-bind:href="post.path">
           {{ post.title }}
           <span class="has-text-grey">{{ show_date(post.frontmatter.date) }}</span>
@@ -10,6 +10,13 @@
     </ul>
   </div>
 </template>
+
+<style lang="stylus">
+li
+  margin-bottom 1rem
+  &:last-of-type
+    margin-bottom 0
+</style>
 
 <script>
 export default {

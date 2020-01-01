@@ -84,14 +84,15 @@ export default {
       display block
       margin 3rem auto 1.5rem
     h1
-      font-size 3rem
+      font-size 2rem
     h1, .description, .action
-      margin 1.8rem auto
+      margin 0 auto
+      margin-top 4rem
     .description
-      max-width 35rem
-      font-size 1.6rem
+      font-size 1.25rem
       line-height 1.3
       color lighten($textColor, 40%)
+      margin-bottom 4rem
     .action-button
       display inline-block
       font-size 1.2rem

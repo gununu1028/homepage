@@ -11,6 +11,14 @@
   </main>
 </template>
 
+<style lang="stylus">
+p
+  margin-bottom 1rem
+  
+h2 
+  margin-bottom 1rem
+</style>
+
 <script>
 import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'

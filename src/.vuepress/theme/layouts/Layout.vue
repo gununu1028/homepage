@@ -51,6 +51,11 @@
   </div>
 </template>
 
+<style lang="stylus">
+.footer
+  padding 4rem 0
+</style>
+
 <script>
 import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
