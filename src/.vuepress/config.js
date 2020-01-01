@@ -1,6 +1,12 @@
 module.exports = {
   base: "/official-blog/",
   dest: process.cwd() + "/docs/",
+  title: 'まつだあつしのホームページ',
+  locales: {
+    "/": {
+      lang: "ja"
+    }
+  },
   head: [
     [
       "link",
