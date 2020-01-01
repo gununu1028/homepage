@@ -9,8 +9,8 @@
     "vuepress": "^1.1.0"
   },
   "scripts": {
-    "dev": "vuepress dev md",
-    "build": "vuepress build md"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.5.2"
