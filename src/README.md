@@ -3,7 +3,6 @@ home: true
 title: まつだあつしのホームページ
 heroText: まつだあつしのホームページ
 description: 技術メモや旅行記などいろいろを載せています。
-footer: Copyright (c) 2019 Matsuda Atsushi
 ---
 
 <PostList />

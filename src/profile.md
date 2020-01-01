@@ -1,7 +1,6 @@
 ---
 title: 自己紹介
 date: 2019-10-28
-footer: Copyright (c) 2019 Matsuda Atsushi
 ---
 
 # 自己紹介

@@ -1,6 +1,5 @@
 ---
 date: 2019-12-01
-footer: Copyright (c) 2019 Matsuda Atsushi
 ---
 
 # divとspan

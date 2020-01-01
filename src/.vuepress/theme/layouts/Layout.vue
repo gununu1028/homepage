@@ -44,6 +44,10 @@
         slot="bottom"
       />
     </Page>
+
+    <footer class="footer">
+      <p class="has-text-centered has-text-grey-dark">Copyright (c) 2019 Matsuda Atsushi</p>
+    </footer>
   </div>
 </template>
 
