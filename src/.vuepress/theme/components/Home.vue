@@ -87,12 +87,12 @@ export default {
       font-size 2rem
     h1, .description, .action
       margin 0 auto
-      margin-top 4rem
+      margin-top 6rem
     .description
       font-size 1.25rem
       line-height 1.3
       color lighten($textColor, 40%)
-      margin-bottom 4rem
+      margin-bottom 6rem
     .action-button
       display inline-block
       font-size 1.2rem
