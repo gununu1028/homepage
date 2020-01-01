@@ -15,7 +15,13 @@
 export default {
   computed: {
     posts() {
-      return this.$site.pages;
+      var posts = this.$site.pages.filter(function(page) {
+        // home指定がないものだけを表示するように
+        return !page.frontmatter.home;
+      });
+      return posts.sort(function(a, b) {
+        return a.frontmatter.date < b.frontmatter.date ? 1 : -1;
+      });
     }
   },
   methods: {
@@ -24,7 +30,6 @@ export default {
         return null;
       }
       var date = new Date(string);
-      console.log(date);
       return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
     }
   }

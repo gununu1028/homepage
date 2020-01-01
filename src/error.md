@@ -1,3 +1,8 @@
+---
+date: 2019-11-01
+footer: Copyright (c) 2019 Matsuda Atsushi
+---
+
 # プログラムでエラーが出ないとき
 
 
