@@ -2,10 +2,10 @@
   <div>
     <ul>
       <li v-for="post in posts">
-        <a v-bind:href="post.path">
+        <router-link :to="post.path">
           {{ post.title }}
           <span class="has-text-grey">{{ show_date(post.frontmatter.date) }}</span>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
