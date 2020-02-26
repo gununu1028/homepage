@@ -1,73 +1,53 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <img
-        v-if="data.heroImage"
-        :src="$withBase(data.heroImage)"
-        :alt="data.heroAlt || 'hero'"
-      >
+      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'" />
 
-      <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
+      <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
 
       <p class="description">
-        {{ data.tagline || $description || 'Welcome to your VuePress site' }}
+        {{ data.tagline || $description || "Welcome to your VuePress site" }}
       </p>
 
-      <p
-        class="action"
-        v-if="data.actionText && data.actionLink"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
+      <p class="action" v-if="data.actionText && data.actionLink">
+        <NavLink class="action-button" :item="actionLink" />
       </p>
     </header>
 
-    <div
-      class="features"
-      v-if="data.features && data.features.length"
-    >
-      <div
-        class="feature"
-        v-for="(feature, index) in data.features"
-        :key="index"
-      >
+    <div class="features" v-if="data.features && data.features.length">
+      <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>
     </div>
 
-    <Content class="theme-default-content custom"/>
+    <Content class="theme-default-content custom" />
 
-    <div
-      class="footer"
-      v-if="data.footer"
-    >
+    <div class="footer" v-if="data.footer">
       {{ data.footer }}
     </div>
   </main>
 </template>
 
 <script>
-import NavLink from '@theme/components/NavLink.vue'
+import NavLink from "@theme/components/NavLink.vue";
 
 export default {
   components: { NavLink },
 
   computed: {
-    data () {
-      return this.$page.frontmatter
+    data() {
+      return this.$page.frontmatter;
     },
 
-    actionLink () {
+    actionLink() {
       return {
         link: this.data.actionLink,
         text: this.data.actionText
-      }
+      };
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
@@ -76,6 +56,8 @@ export default {
   max-width 960px
   margin 0px auto
   display block
+  ul
+    padding: 0
   .hero
     text-align center
     img
@@ -144,16 +126,22 @@ export default {
   .home
     padding-left 1.5rem
     padding-right 1.5rem
+    .media
+      flex-direction column
+      flex-wrap wrap
+      dt
+        margin-top 1rem
     .hero
+      padding 4rem 0
       img
         max-height 210px
         margin 2rem auto 1.2rem
       h1
-        font-size 2rem
+        font-size 1.5rem
       h1, .description, .action
         margin 1.2rem auto
       .description
-        font-size 1.2rem
+        font-size 1rem
       .action-button
         font-size 1rem
         padding 0.6rem 1.2rem
