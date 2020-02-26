@@ -3,7 +3,7 @@
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128">
-          <img src="/official-blog/assets/img/profile.bacc1f3b.jpg" alt="松田淳司の写真" />
+          <img src="/assets/img/profile.bacc1f3b.jpg" alt="松田淳司の写真" />
         </figure>
       </div>
       <div class="media-content">
