@@ -915,6 +915,11 @@
     vuepress-plugin-disqus-comment "^0.2.3"
     vuepress-plugin-sitemap "^2.3.0"
 
+"@vuepress/plugin-google-analytics@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.3.1.tgz#2e756879f58762ba82b7b509f4b0d44be4695484"
+  integrity sha512-Xb7g86JT/LD1sLYG2txvpp4ztDTOqN5yNRZK5OtzEekCh0NWxIxz0fEYKqVlaskIFnzoA1dfizudyjGCKY+hMw==
+
 "@vuepress/plugin-last-updated@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-last-updated/-/plugin-last-updated-1.1.0.tgz#65f2de734f3744026297b4667f3b5276ef99fd06"

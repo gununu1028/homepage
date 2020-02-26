@@ -1,7 +1,7 @@
 module.exports = {
   base: "/",
   dest: process.cwd() + "/dest/",
-  title: 'まつだあつしのホームページ',
+  title: "まつだあつしのホームページ",
   locales: {
     "/": {
       lang: "ja"
@@ -13,6 +13,14 @@ module.exports = {
       {
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+      }
+    ]
+  ],
+  plugins: [
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-124565856-1"
       }
     ]
   ]
