@@ -4,7 +4,7 @@
       <li v-for="post in posts">
         <router-link :to="post.path">
           {{ post.title }}
-          <span class="has-text-grey">{{ show_date(post.frontmatter.date) }}</span>
+          <span class="has-text-grey post-list__item__date">{{ show_date(post.frontmatter.date) }}</span>
         </router-link>
       </li>
     </ul>
@@ -16,6 +16,10 @@ li
   margin-bottom 1rem
   &:last-of-type
     margin-bottom 0
+.post-list__item__date
+  font-size 0.9rem
+a
+  transition all 500ms
 </style>
 
 <script>
