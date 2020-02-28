@@ -54,6 +54,7 @@
 <style lang="stylus">
 .footer
   padding 4rem 0
+  font-size 0.9rem
 </style>
 
 <script>

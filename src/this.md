@@ -1,10 +1,9 @@
 ---
-title: $this->validate()の$thisとは？
 tags: PHP Laravel
 date: 2019-12-20
 ---
 
-# $this->validate()の$thisとは？
+# 【Laravel】$this->validate()の$thisとは？
 
 ## はじめに
 

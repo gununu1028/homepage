@@ -2,7 +2,7 @@
 date: 2019-12-01
 ---
 
-# divとspan
+# 【HTML】divとspan
 
 div：ブロック要素
 span：インライン要素

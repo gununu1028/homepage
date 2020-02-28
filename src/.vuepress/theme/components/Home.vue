@@ -123,9 +123,12 @@ export default {
       padding 0 2.5rem
 
 @media (max-width: $MQMobileNarrow)
-  .home
+  .theme-default-content
     padding-left 1.5rem
     padding-right 1.5rem
+  .home
+    padding-left 0
+    padding-right 0
     .media
       flex-direction column
       flex-wrap wrap

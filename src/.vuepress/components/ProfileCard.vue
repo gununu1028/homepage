@@ -31,4 +31,7 @@ dt
   margin-bottom 1rem
 .media-left
   margin-right 2rem
+@media (max-width: $MQMobileNarrow)
+  .box
+    padding 1.5rem
 </style>
