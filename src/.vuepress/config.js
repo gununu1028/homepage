@@ -19,7 +19,7 @@ module.exports = {
       "link",
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
+        href: "https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap"
       }
     ]
   ],
