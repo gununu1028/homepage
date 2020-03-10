@@ -9,13 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
+      - uses: chrislennon/action-aws-cli@v1.1
         with:
           node-version: 10.x
-      - run: yarn install
-      - run: yarn build
-      - uses: chrislennon/action-aws-cli@v1.1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
-        with:
-          args: s3 sync dist/ s3://www.m5a.jp --delete
+      - run: yarn install
+      - run: yarn build
+      - run: s3 sync dist/ s3://www.m5a.jp --delete
+      
