@@ -140,7 +140,7 @@ export default {
         max-height 210px
         margin 2rem auto 1.2rem
       h1
-        font-size 1.5rem
+        font-size 1.4rem
       h1, .description, .action
         margin 1.2rem auto
       .description
