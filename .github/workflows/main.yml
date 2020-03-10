@@ -1,8 +1,6 @@
 name: Upload to S3
-on:
-  push:
-    branches:
-      - master
+# This workflow is triggered on pushes to the repository.
+on: [push]
 
 jobs:
   deploy:
