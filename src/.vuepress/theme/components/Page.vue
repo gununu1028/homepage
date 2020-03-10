@@ -43,4 +43,6 @@ export default {
       font-size 1.25rem
     h3
       font-size 1.1rem
+    ul 
+      margin-left 0.5rem
 </style>
