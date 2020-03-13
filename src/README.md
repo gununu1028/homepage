@@ -2,7 +2,7 @@
 home: true
 title: まつだあつしのホームページ
 heroText: まつだあつしのホームページ
-description: 主に技術メモを載せています。
+description: 田舎のITエンジニアの雑記をまとめています。
 ---
 
 <PostList />
