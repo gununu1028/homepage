@@ -18,7 +18,9 @@ export default {
   name: 'PageEdit',
   computed: {
     lastUpdated () {
-      return this.$page.lastUpdated
+      const date = new Date(this.$page.frontmatter.date)
+      return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
+      // return this.$page.lastUpdated
     },
 
     lastUpdatedText () {
