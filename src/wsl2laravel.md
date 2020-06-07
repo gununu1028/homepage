@@ -1,12 +1,12 @@
 ---
-title: WSL2でLaravelを試す
+title: Ubuntu20.04（Windows Subsystem for Linux 2）でLaravelを試す
 tags: WSL2
 date: 2020-06-06
 ---
 
-# WSL2でLaravel5.8を試す
+# Ubuntu20.04（Windows Subsystem for Linux 2）でLaravelを試す
 
-WSL2でLaravelを試します。  
+UbuntuでLaravelを試します。  
 あえてDockerを使わない方法です。  
 検証でさくっと動かしたいときにわざわざ設定するのが面倒かと思い、普通に色々インストールします。  
 複数人で管理しているプロジェクトでは、素直にDockerを使うことをおすすめします。
@@ -47,4 +47,5 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-以上です。
+以上です。  
+WSL2の登場で、Windows上の開発がとても捗りそうです。
